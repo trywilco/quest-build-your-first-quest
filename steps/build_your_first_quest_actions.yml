@@ -20,9 +20,9 @@ startFlow:
             delay: 2000
           - text: "For this we have the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action, it takes a `person` parameter which is the bot that will send the message, and a `messages` parameter which is an array of messages that will be sent one after the other."
             delay: 3000
-          - text: "So we've added an example on this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml), let's add the text **'Hello World'** to the messages array, and see it in action."
+          - text: "So we've added an example on this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml), let's add the text **'What's up?'** to the messages array, and see it in action."
             delay: 2000
-          - text: ":instruction[Open a PR changing the text to 'Hello World' and I'll review it.]"
+          - text: ":instruction[Open a PR changing the text to 'What's up?' and I'll review it.]"
             delay: 2000
 trigger:
   type: github_pr_lifecycle_status
@@ -48,7 +48,7 @@ trigger:
               - conditionId: github_does_file_contain
                 params:
                   fileName: 'steps/your_first_step.yml'
-                  regex: 'text: "?hello world"?'
+                  regex: 'text: "?what''s up?"?'
                   flags: i
             then:
               do:
@@ -80,6 +80,6 @@ trigger:
               params:
                 person: head-of-rd
                 messages:
-                  - text: "Awesome, now let's see it it in action, you should get a message from keen saying 'Hello World'."
+                  - text: "Awesome, now let's see it it in action, you should get a message from keen saying \"What's up?\"."
                     delay: 1500
             - actionId: finish_step

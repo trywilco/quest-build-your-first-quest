@@ -5,7 +5,7 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: "Hello world"
+          - text: "What's up?"
             delay: 2000
     - actionId: finish_step
 trigger:
