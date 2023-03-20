@@ -1,0 +1,41 @@
+id: build_your_first_quest_flow_node
+learningObjectives:
+  - Learn how to implement conditions
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "So, you remember I said you will take about the **flowNode** property? so let's talk about it."
+            delay: 2000
+          - text: "A [flowNode](https://dev.trywilco.com/docs/building-your-quest/flow-nodes.html) gives you to ability to have programming like syntax in your step, it can be one of 3 types: `do`,`if` or `switch`."
+            delay: 3000
+          - text: "`do` is the simplest one, it just do the actions in the do array, without any condition."
+            delay: 2000
+          - text: "`if` is like the if statement you might know from other programming languages (we will get into it in our next step)."
+            delay: 2000
+          - text: "`switch` is like switch case, it let you do different actions based on different states."
+            delay: 2000
+          - text: "If you remember, we already had the `do` flowNode in our [first_step](${user.repository}/blob/main/steps/your_first_step.yml#L15), let's now see how to use the `if` flowNode, ready?"
+            delay: 3000
+trigger:
+  type: user_message
+  params:
+    person: head-of-rd
+  flowNode:
+    if:
+      conditions:
+        - conditionId: is_user_message_text_ready_to_continue
+      then:
+        do:
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "I don't understand what you are saying."
+                  delay: 400

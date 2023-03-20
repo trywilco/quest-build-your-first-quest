@@ -1,0 +1,85 @@
+id: build_your_first_quest_actions
+learningObjectives:
+  - Learn what are actions
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "So, the first thing we need to do is decide what do when the step starts, to achieve this we will look at the `startFlow` property."
+            delay: 2000
+          - text: "The startFlow property has a `do` block, which we will take about it later."
+            delay: 2000
+          - text: "Inside it we describe the operations we want do, we call them **actions**"
+            delay: 2000
+          - text: "An [action](https://dev.trywilco.com/docs/building-your-quest/actions) can be things like sending a message to the player, approving a PR in github and many more."
+            delay: 3000
+          - text: "Let's start by adding an action that will send a message to the player when the step starts."
+            delay: 2000
+          - text: "For this we have the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action, it takes a `person` parameter which is the bot that will send the message, and a `messages` parameter which is an array of messages that will be sent one after the other."
+            delay: 3000
+          - text: "So we've added an example on this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml), let's add the text **'Hello World'** to the messages array, and see it in action."
+            delay: 2000
+          - text: ":instruction[Open a PR changing the text to 'Hello World' and I'll review it.]"
+            delay: 2000
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+            - actionId: github_pr_comment
+              params:
+                person: head-of-rd
+                message: "Reviewing this right now, let's see..."
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Got your PR, going over it right now."
+                    delay: 100
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+              - conditionId: github_does_file_contain
+                params:
+                  fileName: 'steps/your_first_step.yml'
+                  regex: 'text: "?hello world"?'
+                  flags: i
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "Seems good to me, go ahead and merge this PR."
+                        delay: 1500
+                - actionId: github_pr_approve
+                  params:
+                    person: head-of-rd
+                    message: "Seems good to me, go ahead and merge this PR."
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "I don't see the change in the text, can you try again?"
+                        delay: 2000
+                - actionId: github_pr_reject
+                  params:
+                    person: head-of-rd
+                    message: "I don't see the change in the text, can you try again?"
+        github_pr_merged:
+          do:
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Awesome, now let's see it it in action, you should get a message from keen saying 'Hello World'."
+                    delay: 1500
+            - actionId: finish_step

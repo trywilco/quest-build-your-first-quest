@@ -1,4 +1,4 @@
-# quest-template
+# quest-how-to-build-a-quest
 
 ## Quest Details 
 #### title: 

@@ -1,0 +1,17 @@
+id: build_your_first_quest_actions_demo
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "Hello world"
+            delay: 2000
+    - actionId: finish_step
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    do:
+      - actionId: finish_step

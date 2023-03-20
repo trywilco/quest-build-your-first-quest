@@ -1,0 +1,74 @@
+id: build_your_first_quest_create_quest
+learningObjectives:
+  - Get to know our integration with GitHub
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "So let's create our quest."
+            delay: 2000
+          - text: "If you look inside the [repo](${user.repository}) you will see some files, I want to focus on the [quest.yml](${user.repository}/blob/main/quest.yml) file."
+            delay: 2000
+          - text: "This file is the main file for your quest, it contains all the information about your quest."
+            delay: 2000
+          - text: "Let's take a look at the file together, it has the id of the quest, a description and a list of steps."
+            delay: 2000
+          - text: "To identify the quest, we use an id in the quest.yml file. So let's start by adding the id of the quest, we will use the id: **quest_${user.repoName.toLowerCase()}**"
+            delay: 2000
+          - text: ":instruction[Let's open a PR to add the id to the quest.yml file.]"
+            delay: 2000
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+            - actionId: github_pr_comment
+              params:
+                person: head-of-rd
+                message: "Reviewing this right now, let's see..."
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Got your PR, going over it right now."
+                    delay: 100
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+              - conditionId: github_does_file_contain
+                params:
+                  fileName: 'quest.yml'
+                  regex: 'id: quest_${user.repoName.toLowerCase()}'
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "Approved! Go ahead and merge this PR."
+                        delay: 1500
+                - actionId: github_pr_approve
+                  params:
+                    person: head-of-rd
+                    message: "Approved! Go ahead and merge this PR."
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "I don't see the right id in the quest.yml file, can you change it?"
+                        delay: 2000
+                - actionId: github_pr_reject
+                  params:
+                    person: head-of-rd
+                    message: "I don't see the right id in the quest.yml file, can you change it?"
+        github_pr_merged:
+          do:
+            - actionId: finish_step

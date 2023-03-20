@@ -1,0 +1,80 @@
+id: build_your_first_quest_conditions_intro
+learningObjectives:
+  - Learn what are conditions
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "So the `if` flowNode, as I mentioned before, let's you check if something is true or false."
+            delay: 2000
+          - text: "Each `if` block has a `conditionId` and `params` properties, followed by a `then` and `else` blocks."
+            delay: 3000
+          - text: "The `conditionId` can be one of the following [conditions](https://dev.trywilco.com/docs/building-your-quest/conditions/), and the `params` are the parameters that the condition needs to check."
+            delay: 3000
+          - text: |
+              The structure looks like this: 
+              ```
+              if:
+                conditions:
+                  - conditionId: <conditionId>
+                    params:
+                      <param1>: <value1>
+                then:
+                  do:
+                    - actionId: <actionId>
+                else:
+                  do:
+                    - actionId: <actionId>
+              ```
+            delay: 3000
+          - text: "But before we actually implement anything, let's start by verifying your knowledge."
+            delay: 3000
+          - text: "Let's say you want to check if the user's message contains a certain text, which `conditionId` would you use? (try to use the [docs](https://dev.trywilco.com/docs/building-your-quest))"
+            delay: 3000
+trigger:
+  type: user_message
+  params:
+    person: head-of-rd
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: "text_match_regex"
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+                - text: "That's right! The `text_match_regex` condition checks if the user's message matches a regular expression."
+                  delay: 2000
+          - actionId: finish_step
+      else:
+        if:
+          conditions:
+            - conditionId: text_match_regex
+              params:
+                text: "${userMessageText}"
+                regex: "text_contains_strings"
+          then:
+            do:
+              - actionId: bot_message
+                params:
+                  person: head-of-rd
+                  messages:
+                    - text: "That's right! The `text_contains_strings` condition checks if the user's message equals a string."
+                      delay: 2000
+              - actionId: finish_step
+          else:
+            do:
+              - actionId: bot_message
+                params:
+                  person: head-of-rd
+                  messages:
+                    - text: "Doesn't seem right to me, try again."
+                      delay: 2000

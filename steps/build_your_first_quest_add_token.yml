@@ -1,0 +1,59 @@
+id: build_your_first_quest_add_token
+learningObjectives:
+  - Get to know our integration with GitHub
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "Hey, so you want to build your first quest?"
+            delay: 2000
+          - text: "So the first thing you need to do is to create a new repository for your quest, luckily we already [created](${user.repository}) it for you."
+            delay: 2000
+          - text: "But before you actually build the quest, I would like to connect your GitHub repository to Wilco."
+            delay: 2000
+          - text: "To do that, you would need to create a token."
+            delay: 2000
+          - text: "So please go to the [utils page](${platform.baseUrl}/quest-builder-utils) on our website, and click on the **Generate new token** button."
+            delay: 2000
+          - text: "Copy the token, and paste it here (if you already created a token before, you can use it as well)"
+            delay: 2000
+trigger:
+  type: user_message
+  params:
+    person: head-of-rd
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: ^.{32}$ # 32 characters
+            flags: i
+      then:
+        do:
+          - actionId: github_add_secret
+            params:
+              secretName: QUESTS_EDITOR_EMAIL
+              secretValue: "${user.email}"
+          - actionId: github_add_secret
+            params:
+              secretName: QUESTS_EDITOR_TOKEN
+              secretValue: "${userMessageText}"
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+                - text: Thanks, I've added it to your repository.
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+                - text: It doesn't seem like a valid token, it should be 32 characters long.
+                  delay: 2500

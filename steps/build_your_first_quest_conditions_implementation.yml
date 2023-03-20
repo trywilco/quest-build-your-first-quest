@@ -1,0 +1,79 @@
+id: build_your_first_quest_conditions_implementation
+learningObjectives:
+  - Learn how to implement the `if` block
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "Now let's implement it, we will use the `text_contains_strings` condition to check that the player responds to the question 'Whats Up?' with the word 'Good'."
+            delay: 3000
+          - text: "If you read the text_contains_strings [docs](https://dev.trywilco.com/docs/building-your-quest/conditions/text-contains-strings.html) you will see that it has a `text` and a `strings` parameter."
+            delay: 3000
+          - text: "The `text` parameter is the text we want to match against, to get the player's response we use a special template string **${userMessageText}**."
+            delay: 3000
+          - text: "The `strings` parameter is an array of strings we want to match against the text, in this case we want to match against the word 'Good'."
+            delay: 2000
+          - text: "So what I want you do is to :instruction[open a PR for the [steps/conditions_step.yml](${user.repository}/blob/main/steps/conditions_step.yml) file] and add the those changes."
+            delay: 2000
+
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+            - actionId: github_pr_comment
+              params:
+                person: head-of-rd
+                message: "Reviewing this right now, let's see..."
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Got your PR, going over it right now."
+                    delay: 100
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+              - conditionId: github_does_file_contain
+                params:
+                  fileName: 'steps/conditions_step.yml'
+                  regex: 'flowNode:\n.*if:\n.*conditions:\n.*- conditionId: text_contains_strings\n.*params:\n.*text: "?\\$\{userMessageText}"?\n.*strings:\n.*- ?[gG]ood?'
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "Nice job! go ahead and merge this PR."
+                        delay: 1500
+                - actionId: github_pr_approve
+                  params:
+                    person: head-of-rd
+                    message: "Nice job! go ahead and merge this PR."
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "It seems that the `if` block wasn't added correctly, can you try again?"
+                        delay: 2000
+                - actionId: github_pr_reject
+                  params:
+                    person: head-of-rd
+                    message: "It seems that the `if` block wasn't added correctly, can you try again?"
+        github_pr_merged:
+          do:
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Nice job! You've completed your first quest! you can now try it by going to the quest builder page and click Test your quest."
+                    delay: 1500
+            - actionId: finish_step

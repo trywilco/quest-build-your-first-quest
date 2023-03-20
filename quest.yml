@@ -1,17 +1,34 @@
-id: example_test1
-title: Funnel Drop
-subtitle: Find the cause of user traffic drop in production and fix it
-description: "What’s worse than a bug? A bug that happens in the production environment! \nIt affects real users, who often have pitchforks and torches and would not hesitate to use them on you. Time to learn how to handle such bugs—from getting a support ticket, through bug replication, to making sure it can’t bug (ha!) anyone ever again."
-summary: "Welcome to real life - where a commit on one side of the world affects users on the other side. Most of the problems you’ll encounter won’t be as straightforward, and we’ll first need to dive into the data to analyze what exactly the problem is.\n\nFinding needles in haystacks is a crucial part of every engineer's work. No two bugs are the same, but the process by which they’re eliminated often begins with cutting and slicing data until we isolate the exact problem. Then we need to reproduce it locally as it’s the only way to know that we are fixing the problem. Finally, it’s time to fix the problem and deploy it to production. \n\nThe reproduction, by the way, can be a challenge in itself, as developing on a desktop with a stable and fast internet connection will give you the experience of a certain subset of your users. Others might use the product on a different type of device or with very limited bandwidth— circumstances that can expose bugs. Luckily, we have enough tools that let us mimic different users."
+id: build_your_first_quest
+title: Build your first quest
+subtitle: "Let's build a quest together!"
+description: "In this quest, you'll learn how to build a quest from scratch. You'll learn how to use the quest builder, how to write steps, and how to use the quest builder's built-in tools to make your quest more interactive."
+summary: "Some people say that the best way to learn is by doing. In this quest, you'll learn how to build a quest from scratch. You'll learn how to use the quest builder, how to write steps, and how to use the quest builder's built-in tools to make your quest more interactive."
 level: beginner
 steps:
-- funneldrop_analyze_data
-- funneldrop_reproduce_locally
-- funneldrop_fixing_bug_pr
+  - build_your_first_quest_add_token
+  - build_your_first_quest_create_quest
+  - build_your_first_quest_add_quest_metadata
+  - build_your_first_quest_create_step
+  - build_your_first_quest_actions
+  - build_your_first_quest_actions_demo
+  - build_your_first_quest_trigger
+  - build_your_first_quest_trigger_demo
+  - build_your_first_quest_flow_node
+  - build_your_first_quest_conditions_intro
+  - build_your_first_quest_conditions_implementation
 duration: 1.5
 skills:
-- frontend
-- debugging
-- observability
-- communication
+  - quest-building
 questDependency: docker_localsetup
+repository: https://github.com/trywilco/build-your-first-quest-template
+frameworks:
+  backend:
+    null
+messages:
+  questStarted:
+    person: head-of-rd
+    messages:
+      - text: "Before you do anything please make sure you have your [repo](${user.repository}) cloned, and run `./start_quest.sh`."
+        delay: 1000
+      - text: "**Ready? let me know when you're done!** 😊"
+        delay: 1000

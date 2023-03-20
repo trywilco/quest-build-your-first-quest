@@ -1,0 +1,85 @@
+id: build_your_first_quest_trigger
+learningObjectives:
+  - Learn what are actions
+hints:
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: "Cool, now that we sent a message to the player, let's say we want to react to the answer they give us, we can do that by adding a **trigger** to the step."
+            delay: 3000
+          - text: "A [trigger](https://dev.trywilco.com/docs/building-your-quest/triggers-and-payloads.html) is used to define how should we react to the player's actions."
+            delay: 3000
+          - text: "Each step should have **only one** trigger."
+            delay: 2000
+          - text: "The trigger has a `type`, which is the player action that will execute the trigger, `params` to pass data to the trigger and a `flowNode`, which describe the actions that will be executed."
+            delay: 3000
+          - text: "We will get into flowsNodes later, but for now let's see how to use a trigger."
+            delay: 2000
+          - text: "Let's say we want to react to the player's message, we can do that by adding a trigger of type `user_message` and action of `bot_message`."
+            delay: 3000
+          - text: "As you can see our first step already has a trigger that reacts to a message that is sent to keen, this trigger has the `finish_step` action which finish the step once the player respond."
+            delay: 3000
+          - text: "So what I want you do is to :instruction[open a PR for our first step that will send the message: **'Thanks for the reply'** once the player respond, **before** finishing the step.]"
+            delay: 2000
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+            - actionId: github_pr_comment
+              params:
+                person: head-of-rd
+                message: "Reviewing this right now, let's see..."
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Got your PR, going over it right now."
+                    delay: 100
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+              - conditionId: github_does_file_contain
+                params:
+                  fileName: 'steps/your_first_step.yml'
+                  regex: 'flowNode:.*\\n.*do.*\\n.*- actionId: bot_message\\n.*params:\\n.*person: keen\\n.*messages:\\n.*- text: "?Thanks for the reply"?'
+                  flags: i
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "Nice job! go ahead and merge this PR."
+                        delay: 1500
+                - actionId: github_pr_approve
+                  params:
+                    person: head-of-rd
+                    message: "Nice job! go ahead and merge this PR."
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: "It seems that the action wasn't added correctly, can you try again?"
+                        delay: 2000
+                - actionId: github_pr_reject
+                  params:
+                    person: head-of-rd
+                    message: "It seems that the action wasn't added correctly, can you try again?"
+        github_pr_merged:
+          do:
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: "Awesome, now you should see how it looks like on Snack, don't forget to answer keen."
+                    delay: 1500
+            - actionId: finish_step
