@@ -1,14 +1,15 @@
-# quest-how-to-build-a-quest
+# quest-build-your-first-quest
 
 ## Quest Details 
-#### title: 
+#### title: Build your first quest
 #### level: 
 #### skills:
 #### dependencies: 
 
 
 ## Overview 
-Explain what the quest is about and describe the main task the user needs to perform in this quest. 
+Teaches the basics of creating a quest.
+Takes our wilco docs and puts them into an interactive quest.
 
 
 ## Outline
