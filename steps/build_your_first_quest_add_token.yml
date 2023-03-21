@@ -38,10 +38,12 @@ trigger:
             params:
               secretName: QUESTS_EDITOR_EMAIL
               secretValue: "${user.email}"
+              secretType: actions
           - actionId: github_add_secret
             params:
               secretName: QUESTS_EDITOR_TOKEN
               secretValue: "${userMessageText}"
+              secretType: actions
           - actionId: bot_message
             params:
               person: head-of-rd
