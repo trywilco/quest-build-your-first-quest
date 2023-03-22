@@ -16,7 +16,7 @@ steps:
   - build_your_first_quest_flow_node
   - build_your_first_quest_conditions_intro
   - build_your_first_quest_conditions_implementation
-duration: 1.5
+duration: 2
 skills:
   - quest-building
 questDependency: docker_localsetup
