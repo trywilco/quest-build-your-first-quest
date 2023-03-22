@@ -41,7 +41,7 @@ trigger:
         do:
           - actionId: bot_message
             params:
-              person: keen
+              person: I don't understand what you are saying.
               messages:
                 - text: "I don't understand what you are saying."
                   delay: 400

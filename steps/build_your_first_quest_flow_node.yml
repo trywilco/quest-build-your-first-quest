@@ -35,7 +35,7 @@ trigger:
         do:
           - actionId: bot_message
             params:
-              person: keen
+              person: head-of-rd
               messages:
                 - text: "I don't understand what you are saying."
                   delay: 400
