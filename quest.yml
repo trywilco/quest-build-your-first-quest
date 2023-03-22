@@ -3,7 +3,7 @@ title: Build your first quest
 subtitle: "Let's build a quest together!"
 description: "In this quest, you'll learn how to build a quest from scratch. You'll learn how to use the quest builder, how to write steps, and how to use the quest builder's built-in tools to make your quest more interactive."
 summary: "Some people say that the best way to learn is by doing. In this quest, you'll learn how to build a quest from scratch. You'll learn how to use the quest builder, how to write steps, and how to use the quest builder's built-in tools to make your quest more interactive."
-level: beginner
+level: intermediate
 steps:
   - build_your_first_quest_add_token
   - build_your_first_quest_create_quest
