@@ -22,8 +22,8 @@ skills:
 questDependency: docker_localsetup
 repository: https://github.com/trywilco/build-your-first-quest-template
 frameworks:
-  backend:
-    null
+  backend: null
+  frontend: null
 messages:
   questStarted:
     person: head-of-rd
