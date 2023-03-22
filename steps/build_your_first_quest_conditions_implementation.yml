@@ -2,6 +2,7 @@ id: build_your_first_quest_conditions_implementation
 learningObjectives:
   - Learn how to implement the `if` block
 hints:
+  - "Make sure you are using the right template string on the `text` parameter of the `text_contains_strings` condition."
 startFlow:
   do:
     - actionId: bot_message

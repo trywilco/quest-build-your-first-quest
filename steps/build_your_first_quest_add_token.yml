@@ -2,6 +2,7 @@ id: build_your_first_quest_add_token
 learningObjectives:
   - Get to know our integration with GitHub
 hints:
+  - "You can use the [utils page](${platform.baseUrl}/quest-builder-utils) to generate a token."
 startFlow:
   do:
     - actionId: bot_message

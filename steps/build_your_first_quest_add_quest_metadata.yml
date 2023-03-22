@@ -2,6 +2,7 @@ id: build_your_first_quest_add_quest_metadata
 learningObjectives:
   - Get to know our integration with GitHub
 hints:
+  - "Make sure you changed the title and description of the quest in the quest.yml file."
 startFlow:
   do:
     - actionId: bot_message

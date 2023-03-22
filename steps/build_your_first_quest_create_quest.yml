@@ -2,6 +2,7 @@ id: build_your_first_quest_create_quest
 learningObjectives:
   - Get to know our integration with GitHub
 hints:
+  - Make sure you changed the `id` property on the quest.yaml file to the id I mentioned.
 startFlow:
   do:
     - actionId: bot_message

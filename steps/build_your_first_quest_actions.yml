@@ -2,6 +2,7 @@ id: build_your_first_quest_actions
 learningObjectives:
   - Learn what are actions
 hints:
+  - "Make sure you change the placeholder text to 'What's up?'"
 startFlow:
   do:
     - actionId: bot_message
