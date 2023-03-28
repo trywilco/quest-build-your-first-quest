@@ -19,7 +19,7 @@ startFlow:
             delay: 3000
           - text: "Let's start by adding an action that will send a message to the player when the step starts."
             delay: 2000
-          - text: "For this we have the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action, it takes a `person` parameter which is the bot that will send the message, and a `messages` parameter which is an array of messages that will be sent one after the other."
+          - text: "For this we have the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action, it takes a `person` parameter which is the bot (keen or lucca) that will send the message, and a `messages` parameter which is an array of messages that will be sent one after the other."
             delay: 3000
           - text: "So we've added an example on this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml), let's add the text **'What's up?'** to the messages array, and see it in action."
             delay: 2000
