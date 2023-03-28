@@ -9,7 +9,7 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "Now that we merged your PR, the quest has been quest created, you can see it on our [quest builder page](${platform.baseUrl}/quest-builder)."
+          - text: "Now that we merged your PR, the quest has been created, you can see it on our [quest builder page](${platform.baseUrl}/quest-builder)."
             delay: 2000
           - text: "There couple of things you can do there: you can upload a new version, test the quest (don't do it now), or delete the quest."
             delay: 2000
