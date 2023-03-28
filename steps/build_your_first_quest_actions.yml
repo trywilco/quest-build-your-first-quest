@@ -11,7 +11,7 @@ startFlow:
         messages:
           - text: "So, the first thing we need to do is decide what do when the step starts, to achieve this we will look at the `startFlow` property."
             delay: 2000
-          - text: "The startFlow property has a `do` block, which we will take about it later."
+          - text: "The startFlow property has a `do` block, which we will talk about it later."
             delay: 2000
           - text: "Inside it we describe the operations we want do, we call them **actions**"
             delay: 2000
