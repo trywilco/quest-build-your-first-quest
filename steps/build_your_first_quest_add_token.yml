@@ -17,7 +17,7 @@ startFlow:
             delay: 2000
           - text: "To do that, you would need to create a token."
             delay: 2000
-          - text: "So please go to the [utils page](${platform.baseUrl}/quest-builder-utils) on our website, and click on the **Generate new token** button."
+          - text: "So please go to the [utils page](${platform.baseUrl}/quest-builder-utils) on our website, and click on the :instruction[Generate new token] button."
             delay: 2000
           - text: "Copy the token, and paste it here (if you already created a token before, you can use it as well)"
             delay: 2000
