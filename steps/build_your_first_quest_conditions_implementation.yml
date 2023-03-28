@@ -44,7 +44,7 @@ trigger:
               - conditionId: github_does_file_contain
                 params:
                   fileName: 'steps/conditions_step.yml'
-                  regex: 'flowNode:\n.*if:\n.*conditions:\n.*- conditionId: text_contains_strings\n.*params:\n.*text: "?\\$\{userMessageText}"?\n.*strings:\n.*- "?[gG]ood"?'
+                  regex: 'flowNode:\n.*if:\n.*conditions:\n.*- conditionId: text_contains_strings\n.*params:\n.*text: ["'']?\\$\{userMessageText}["'']?\n.*strings:\n.*- ["'']?[gG]ood["'']?'
             then:
               do:
                 - actionId: bot_message

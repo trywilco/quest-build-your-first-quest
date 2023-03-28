@@ -49,7 +49,7 @@ trigger:
               - conditionId: github_does_file_contain
                 params:
                   fileName: 'steps/your_first_step.yml'
-                  regex: 'text: "?what''s up?"?'
+                  regex: 'text: ["'']?what''s up?["'']?'
                   flags: i
             then:
               do:

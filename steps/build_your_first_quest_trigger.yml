@@ -48,7 +48,7 @@ trigger:
               - conditionId: github_does_file_contain
                 params:
                   fileName: 'steps/your_first_step.yml'
-                  regex: 'flowNode:.*\\n.*do.*\\n.*- actionId: bot_message\\n.*params:\\n.*person: keen\\n.*messages:\\n.*- text: "?Thanks for the reply"?'
+                  regex: 'flowNode:.*\\n.*do.*\\n.*- actionId: bot_message\\n.*params:\\n.*person: keen\\n.*messages:\\n.*- text: ["'']?Thanks for the reply"["'']?'
                   flags: i
             then:
               do:
