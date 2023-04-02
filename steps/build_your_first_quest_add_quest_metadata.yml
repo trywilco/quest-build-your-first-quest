@@ -2,20 +2,20 @@ id: build_your_first_quest_add_quest_metadata
 learningObjectives:
   - Get to know our integration with GitHub
 hints:
-  - "Make sure you changed the title and description of the quest in the quest.yml file."
+  - "Make sure you've changed the title and description of the quest in the quest.yml file."
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: head-of-rd
         messages:
-          - text: "Now that we merged your PR, the quest has been created, you can see it on our [quest builder page](${platform.baseUrl}/quest-builder)."
+          - text: "Now that we have merged your PR, the quest has been created. You can see it on our [Quest Builder page](${platform.baseUrl}/quest-builder)."
             delay: 2000
-          - text: "There couple of things you can do there: you can upload a new version, test the quest (don't do it now), or delete the quest."
+          - text: "There couple of things you can do there: upload a new version, test the quest (don't do it now), or delete the quest."
             delay: 2000
-          - text: "As you can see on the page, the title and description has some place holder texts in it, let's change that."
+          - text: "As you can see on the page, the title and description have placeholder texts. Let's change that!"
             delay: 2000
-          - text: "To change them, :instruction[please edit the quest.yml file and add your own title and description (everything goes).]"
+          - text: "To change the title and the description, :instruction[please edit the quest.yml file.]"
             delay: 2000
 trigger:
   type: github_pr_lifecycle_status
@@ -66,12 +66,12 @@ trigger:
                   params:
                     person: head-of-rd
                     messages:
-                      - text: "I don't see was changed both the title and the description the quest.yml file, can you change it?"
+                      - text: "I don't see that the title and the description were changed in the quest.yml file. Can you please change them both?"
                         delay: 2000
                 - actionId: github_pr_reject
                   params:
                     person: head-of-rd
-                    message: "I don't see was changed both the title and the description the quest.yml file, can you change it?"
+                    message: "I don't see that the title and the description were changed in the quest.yml file. Can you please change them both?"
         github_pr_merged:
           do:
             - actionId: finish_step
