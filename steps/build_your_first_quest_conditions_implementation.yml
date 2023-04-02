@@ -75,6 +75,6 @@ trigger:
               params:
                 person: head-of-rd
                 messages:
-                  - text: "Nice job! You've completed your first quest! You can now try it by going to the Quest Builder page and clicking the ""Test your quest"" button!"
+                  - text: "Nice job! You've completed your first quest! You can now try it by going to the Quest Builder page and clicking the ֿֿֿֿֿֿ\"Test your quest button!\""
                     delay: 1500
             - actionId: finish_step
