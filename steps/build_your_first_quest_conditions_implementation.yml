@@ -9,13 +9,13 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "Now let's implement it, we will use the `text_contains_strings` condition to check that the player responds to the question 'Whats up?' with the word 'Good'."
+          - text: "Now let's implement the `if` block. We will use the `text_contains_strings` condition to check that the player responds to the question 'Whats up?' with the word 'Good'."
             delay: 3000
           - text: "If you read the text_contains_strings [docs](https://dev.trywilco.com/docs/building-your-quest/conditions/text-contains-strings.html) you will see that it has a `text` and a `strings` parameter."
             delay: 3000
-          - text: "The `text` parameter is the text we want to match against, to get the player's response we use a special template string **${userMessageText}**."
+          - text: "The `text` parameter is the text we want to match against. To get the player's response we use a special template string **${userMessageText}**."
             delay: 3000
-          - text: "The `strings` parameter is an array of strings we want to match against the text, in this case we want to match against the word 'Good'."
+          - text: "The `strings` parameter is an array of strings we want to match against the text. In this case we want to match against the word 'Good'."
             delay: 2000
           - text: "So what I want you do is to :instruction[open a PR for the [steps/conditions_step.yml](${user.repository}/blob/main/steps/conditions_step.yml) file] and add the those changes."
             delay: 2000
@@ -63,18 +63,18 @@ trigger:
                   params:
                     person: head-of-rd
                     messages:
-                      - text: "It seems that the `if` block wasn't added correctly, can you try again?"
+                      - text: "It seems that the `if` block wasn't added correctly. Can you try again?"
                         delay: 2000
                 - actionId: github_pr_reject
                   params:
                     person: head-of-rd
-                    message: "It seems that the `if` block wasn't added correctly, can you try again?"
+                    message: "It seems that the `if` block wasn't added correctly. Can you try again?"
         github_pr_merged:
           do:
             - actionId: bot_message
               params:
                 person: head-of-rd
                 messages:
-                  - text: "Nice job! You've completed your first quest! you can now try it by going to the quest builder page and click Test your quest."
+                  - text: "Nice job! You've completed your first quest! You can now try it by going to the Quest Builder page and clicking the "Test your quest" button!"
                     delay: 1500
             - actionId: finish_step
