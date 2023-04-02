@@ -9,19 +9,19 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "So, the first thing we need to do is decide what do when the step starts, to achieve this we will look at the `startFlow` property."
+          - text: "First things first, we need decide what happens when a step is initiated. Let's start by looking at the `startFlow` property."
             delay: 2000
-          - text: "The startFlow property has a `do` block, which we will talk about it later."
+          - text: "The startFlow property has a `do` block. We'll touch upon it later, but first we need to go a bit deeper."
             delay: 2000
-          - text: "Inside it we describe the operations we want do, we call them **actions**"
+          - text: "Inside the block we have a list of operations. These are called **actions**"
             delay: 2000
-          - text: "An [action](https://dev.trywilco.com/docs/building-your-quest/actions) can be things like sending a message to the player, approving a PR in github and many more."
+          - text: "An [action](https://dev.trywilco.com/docs/building-your-quest/actions) can be things like sending a message to the player, approving a GitHub PR, and much more."
             delay: 3000
-          - text: "Let's start by adding an action that will send a message to the player when the step starts."
+          - text: "Let's add an action that will send a message to the player when the step starts."
             delay: 2000
-          - text: "For this we have the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action, it takes a `person` parameter which is the bot (keen or lucca) that will send the message, and a `messages` parameter which is an array of messages that will be sent one after the other."
+          - text: "It's something we do using the [bot_message](https://dev.trywilco.com/docs/building-your-quest/actions/bot-message.html) action. This action has a `person` parameter that assigns it to one of our usable bots (Luca and Keen), and a `messages` parameter which is an array of messages that will be sent one after the other."
             delay: 3000
-          - text: "So we've added an example on this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml), let's add the text **'What's up?'** to the messages array, and see it in action."
+          - text: "We've added an example of this step on [steps/your_first_step.yml](${user.repository}/blob/main/steps/your_first_step.yml). Let's add the text **'What's up?'** to the messages array, and see it in action."
             delay: 2000
           - text: ":instruction[Open a PR changing the text to 'What's up?' and I'll review it.]"
             delay: 2000
@@ -81,6 +81,6 @@ trigger:
               params:
                 person: head-of-rd
                 messages:
-                  - text: "Awesome, now let's see it it in action, you should get a message from keen saying \"What's up?\"."
+                  - text: "Awesome, now let's see it it in action. You should get a message from keen saying \"What's up?\"."
                     delay: 1500
             - actionId: finish_step
