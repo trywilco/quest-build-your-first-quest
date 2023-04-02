@@ -66,12 +66,12 @@ trigger:
                   params:
                     person: head-of-rd
                     messages:
-                      - text: "I don't see that the title and the description were changed in the quest.yml file. Can you please change them both?"
+                      - text: "I don't see that the title and the description were changed in quest.yml. Can you please change them both?"
                         delay: 2000
                 - actionId: github_pr_reject
                   params:
                     person: head-of-rd
-                    message: "I don't see that the title and the description were changed in the quest.yml file. Can you please change them both?"
+                    message: "I don't see that the title and the description were changed in quest.yml. Can you please change them both?"
         github_pr_merged:
           do:
             - actionId: finish_step
