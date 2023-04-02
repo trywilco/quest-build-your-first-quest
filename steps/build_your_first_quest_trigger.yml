@@ -8,21 +8,21 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "Cool, now that we sent a message to the player, let's say we want to react to the answer they give us, we can do that by adding a **trigger** to the step."
+          - text: "Cool! Now that we've sent a message to the player, let's say we want to react to the answer they give us. We can do that by adding a **trigger** to the step."
             delay: 3000
-          - text: "A [trigger](https://dev.trywilco.com/docs/building-your-quest/triggers-and-payloads.html) is used to define how should we react to the player's actions."
+          - text: "A [trigger](https://dev.trywilco.com/docs/building-your-quest/triggers-and-payloads.html) is used to define how Wilco reacts to the player's actions."
             delay: 3000
           - text: "Each step should have **only one** trigger."
             delay: 2000
-          - text: "The trigger has a `type`, which is the player action that will execute the trigger, `params` to pass data to the trigger and a `flowNode`, which describe the actions that will be executed."
+          - text: "The trigger has a `type`, which is the player action that will execute the trigger, `params` to pass data to the trigger, and a `flowNode`, which describe the actions that will be executed."
             delay: 3000
-          - text: "We will get into flowsNodes later, but for now let's see how to use a trigger."
+          - text: "We will get into flowsNodes later. For now, let's see how to use a trigger."
             delay: 2000
-          - text: "Let's say we want to react to the player's message, we can do that by adding a trigger of type `user_message` and action of `bot_message`."
+          - text: "Let's say we want to react to the player's message. We can do that by adding a trigger of the type `user_message` and a `bot_message` action."
             delay: 3000
-          - text: "As you can see our first step already has a trigger that reacts to a message that is sent to keen, this trigger has the `finish_step` action which finish the step once the player respond."
+          - text: "As you can see, our first step already has a trigger that reacts to a message that is sent to Keen. This trigger has the `finish_step` action, ending the step once the player respond."
             delay: 3000
-          - text: "So what I want you do is to :instruction[open a PR for our first step that will send the message: **'Thanks for the reply'** once the player respond, **before** finishing the step.]"
+          - text: "So what I want you do is to :instruction[open a PR for our first step that will send the message: **'Thanks for the reply'** once the player responds, **before** finishing the step.]"
             delay: 2000
 trigger:
   type: github_pr_lifecycle_status
@@ -68,18 +68,18 @@ trigger:
                   params:
                     person: head-of-rd
                     messages:
-                      - text: "It seems that the action wasn't added correctly, can you try again?"
+                      - text: "It seems that the action wasn't added correctly. Can you try again?"
                         delay: 2000
                 - actionId: github_pr_reject
                   params:
                     person: head-of-rd
-                    message: "It seems that the action wasn't added correctly, can you try again?"
+                    message: "It seems that the action wasn't added correctly. Can you try again?"
         github_pr_merged:
           do:
             - actionId: bot_message
               params:
                 person: head-of-rd
                 messages:
-                  - text: "Awesome, now you should see how it looks like on Snack, don't forget to answer keen."
+                  - text: "Awesome, now you should see what it looks like on Snack. Don't forget to answer Keen."
                     delay: 1500
             - actionId: finish_step
