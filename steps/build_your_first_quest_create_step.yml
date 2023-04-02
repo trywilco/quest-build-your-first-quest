@@ -10,21 +10,21 @@ startFlow:
         messages:
           - text: "Now that we have a quest, let's create a step for it."
             delay: 2000
-          - text: "A [step](https://dev.trywilco.com/docs/building-your-quest/creating-steps.html) is a task that the player will do as part of the quest."
+          - text: "A [step](https://dev.trywilco.com/docs/building-your-quest/creating-steps.html) is a task that the player needs to do as part of the quest."
             delay: 2000
-          - text: "Each quest is built from series of steps, each step is a yaml file that exists on the steps folder."
+          - text: "Each quest is built from series of steps. Each step is a yaml file inside the steps folder."
             delay: 2000
-          - text: "A step has an `id`, a `startFlow` and a `trigger` (and other properties that will learn on later)."
+          - text: "A step has an `id`, a `startFlow`, and a `trigger` (as well as other properties that will learn about later)."
             delay: 2000
-          - text: "The `id` property is an identifier for the step, and it's used to reference it in the quest."
+          - text: "The `id` property is an identifier for the step. It's used to reference this step in the quest."
             delay: 2000
           - text: "The `startFlow` property describes the flow that will run when the step starts."
             delay: 2000
-          - text: "The `trigger` property describes the flow that will run in reaction to a player action like: a message on a snack was sent, a PR was opened and so on..."
+          - text: "The `trigger` property describes the flow that will run in reaction to a player action, like when they send a message on Snack or open a PR"
             delay: 3000
-          - text: "Let's create a step for the quest we created earlier, the step will send a message to the player when the step starts."
+          - text: "Let's create a step for the quest we created earlier. The step will send a message to the player."
             delay: 2000
-          - text: "But, before we do that, we would need to the learn another concept, **are you ready to do that?**"
+          - text: "But, before we do that, we would need to the learn another concept. **Are you ready to do that?**"
             delay: 2000
 trigger:
   type: user_message

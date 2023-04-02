@@ -11,13 +11,13 @@ startFlow:
         messages:
           - text: "So let's create our quest."
             delay: 2000
-          - text: "If you look inside the [repo](${user.repository}) you will see some files, I want to focus on the [quest.yml](${user.repository}/blob/main/quest.yml) file."
+          - text: "Inside the [repo](${user.repository}) you will see a few files. I want to focus on the [quest.yml](${user.repository}/blob/main/quest.yml) file."
             delay: 2000
-          - text: "This file is the main file for your quest, it contains all the information about your quest."
+          - text: "This is the main quest file. It contains all the information about your quest and ties everything together."
             delay: 2000
-          - text: "Let's take a look at the file together, it has the id of the quest, a description and a list of steps."
+          - text: "Let's take a look at the file together. It has the id of the quest, a description, and a list of steps."
             delay: 2000
-          - text: "To identify the quest, we use an id in the quest.yml file. So let's start by adding the id of the quest, we will use the id: **quest_${user.repoName.toLowerCase()}**"
+          - text: "To identify a quest, we use an id in the quest.yml file. So let's start by adding the id of your quest. We will use the id: **quest_${user.repoName.toLowerCase()}**"
             delay: 2000
           - text: ":instruction[Let's open a PR to add the id to the quest.yml file.]"
             delay: 2000
@@ -64,12 +64,12 @@ trigger:
                   params:
                     person: head-of-rd
                     messages:
-                      - text: "I don't see the right id in the quest.yml file, can you change it?"
+                      - text: "I don't see the right id in the quest.yml file. Can you change it?"
                         delay: 2000
                 - actionId: github_pr_reject
                   params:
                     person: head-of-rd
-                    message: "I don't see the right id in the quest.yml file, can you change it?"
+                    message: "I don't see the right id in the quest.yml file. Can you change it?"
         github_pr_merged:
           do:
             - actionId: finish_step

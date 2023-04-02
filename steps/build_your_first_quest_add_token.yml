@@ -9,17 +9,17 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "Hey, so you want to build your first quest?"
+          - text: "Hey, so you want to build a quest?"
             delay: 2000
-          - text: "So the first thing you need to do is to create a new repository for your quest, luckily we already [created](${user.repository}) it for you."
+          - text: "The first thing you need to do is create a new repository. Luckily, we already [created](${user.repository}) it for you."
             delay: 2000
-          - text: "But before you actually build the quest, I would like to connect your GitHub repository to Wilco."
+          - text: "But before you actually build the quest, we should connect your GitHub repository to Wilco."
             delay: 2000
           - text: "To do that, you would need to create a token."
             delay: 2000
           - text: "So please go to the [utils page](${platform.baseUrl}/quest-builder-utils) on our website, and click on the :instruction[Generate new token] button."
             delay: 2000
-          - text: "Copy the token, and paste it here (if you already created a token before, you can use it as well)"
+          - text: "Copy the token, and paste it here. If you already have a token, you can use it."
             delay: 2000
 trigger:
   type: user_message
@@ -58,5 +58,5 @@ trigger:
             params:
               person: head-of-rd
               messages:
-                - text: It doesn't seem like a valid token, it should be 32 characters long.
+                - text: It doesn't seem like a valid token. The token I'm talking about should be 32 characters long.
                   delay: 2500

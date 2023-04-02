@@ -8,7 +8,7 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "So the `if` flowNode, as I mentioned before, let's you check if something is true or false."
+          - text: "So the `if` flowNode, as I mentioned before, lets you check if something is true or false."
             delay: 2000
           - text: "Each `if` block has a `conditionId` and `params` properties, followed by a `then` and `else` blocks."
             delay: 3000
@@ -32,7 +32,7 @@ startFlow:
             delay: 3000
           - text: "But before we actually implement anything, let's start by verifying your knowledge."
             delay: 3000
-          - text: "Let's say you want to check if the user's message contains a certain text, which `conditionId` would you use? (try to use the [docs](https://dev.trywilco.com/docs/building-your-quest))"
+          - text: "Let's say you want to check if the user's message contains a certain text. Which `conditionId` would you use? (try to use the [docs](https://dev.trywilco.com/docs/building-your-quest))"
             delay: 3000
 trigger:
   type: user_message
@@ -76,5 +76,5 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: "Doesn't seem right to me, try again."
+                    - text: "Doesn't seem right to me, please try again."
                       delay: 2000

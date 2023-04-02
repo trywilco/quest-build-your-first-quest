@@ -8,17 +8,17 @@ startFlow:
       params:
         person: head-of-rd
         messages:
-          - text: "So, you remember I said you will take about the **flowNode** property? so let's talk about it."
+          - text: "Remember I said that we will talk about the **flowNode** property? So, let's talk about it!"
             delay: 2000
-          - text: "A [flowNode](https://dev.trywilco.com/docs/building-your-quest/flow-nodes.html) gives you to ability to have programming like syntax in your step, it can be one of 3 types: `do`,`if` or `switch`."
+          - text: "A [flowNode](https://dev.trywilco.com/docs/building-your-quest/flow-nodes.html) gives you to ability to have programming-like syntax in your step. It can be one of three commands: `do`,`if` or `switch`."
             delay: 3000
-          - text: "`do` is the simplest one, it just do the actions in the do array, without any condition."
+          - text: "`do` is the simplest one. It just does the actions in the array, without any condition."
             delay: 2000
           - text: "`if` is like the if statement you might know from other programming languages (we will get into it in our next step)."
             delay: 2000
-          - text: "`switch` is like switch case, it let you do different actions based on different states."
+          - text: "`switch` is like switch case. It lets you do different actions based on different states."
             delay: 2000
-          - text: "If you remember, we already had the `do` flowNode in our [first_step](${user.repository}/blob/main/steps/your_first_step.yml#L15), let's now see how to use the `if` flowNode, ready?"
+          - text: "If you remember, we already had the `do` flowNode in our [first_step](${user.repository}/blob/main/steps/your_first_step.yml#L15). Now let's see how to use the `if` flowNode. Ready?"
             delay: 3000
 trigger:
   type: user_message
