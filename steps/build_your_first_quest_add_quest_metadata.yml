@@ -11,7 +11,7 @@ startFlow:
         messages:
           - text: "Now that we have merged your PR, the quest has been created. You can see it on our [Quest Builder page](${platform.baseUrl}/quest-builder)."
             delay: 2000
-          - text: "There couple of things you can do there: upload a new version, test the quest (don't do it now), or delete the quest."
+          - text: "There are a couple of things you can do there: upload a new version, test the quest (don't do it now), or delete the quest."
             delay: 2000
           - text: "As you can see on the page, the title and description have placeholder texts. Let's change that!"
             delay: 2000

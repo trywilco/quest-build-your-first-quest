@@ -14,7 +14,7 @@ startFlow:
             delay: 2000
           - text: "Each quest is built from series of steps. Each step is a yaml file inside the steps folder."
             delay: 2000
-          - text: "A step has an `id`, a `startFlow`, and a `trigger` (as well as other properties that will learn about later)."
+          - text: "A step has an `id`, a `startFlow`, and a `trigger` (as well as other properties that we'll learn about later)."
             delay: 2000
           - text: "The `id` property is an identifier for the step. It's used to reference this step in the quest."
             delay: 2000

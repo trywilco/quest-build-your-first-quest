@@ -20,7 +20,7 @@ startFlow:
             delay: 2000
           - text: "Let's say we want to react to the player's message. We can do that by adding a trigger of the type `user_message` and a `bot_message` action."
             delay: 3000
-          - text: "As you can see, our first step already has a trigger that reacts to a message that is sent to Keen. This trigger has the `finish_step` action, ending the step once the player respond."
+          - text: "As you can see, our first step already has a trigger that reacts to a message that is sent to Keen. This trigger has the `finish_step` action, ending the step once the player responds."
             delay: 3000
           - text: "So what I want you do is to :instruction[open a PR for our first step that will send the message: **'Thanks for the reply'** once the player responds, **before** finishing the step.]"
             delay: 2000

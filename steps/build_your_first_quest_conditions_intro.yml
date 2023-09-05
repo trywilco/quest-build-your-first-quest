@@ -67,7 +67,7 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: "That's right! The `text_contains_strings` condition checks if the user's message equals a string."
+                    - text: "That's right! The `text_contains_strings` condition checks if the user's message contains a string."
                       delay: 2000
               - actionId: finish_step
           else:
